@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+.btn-space{
+    margin-left: 10px;
+}
+
+.input-txt-normal{
+    min-width: 100%;
+}
+
+.input-range-normal{
+    min-width: 100%;
+}
+
+.input-space{
+    margin-left: 10px;
+}
+
+.row{
+    margin-top: 10px;
+}
+
+.inner-td{
+    border:1 px solid #cccccc;
+}
+
+.tbody-bckground{
+    /* background-color: #cfd0df; */
+}
+
+.date-style{
+    width:170px !important;
+}
+
+.enddate_stye{
+    padding-left: 20px !important;
+}

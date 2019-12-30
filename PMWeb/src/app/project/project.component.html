@@ -1,0 +1,131 @@
+<div class="col-lg-12 col-md-12">
+    <h4>Project Manager - Project</h4>
+  </div>
+<div class="container-fluid">
+    <div class="container">
+        <div class="col-lg-8 col-md-12 col-md-12">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-md-12 pull-right">
+                    <label>Project Name</label>
+                </div>
+                <div class="col-lg-9 col-md-12 col-md-12 pull-left">
+                    <input type="text" [(ngModel)]="this._projectName" #projectName class="textbox input-txt-normal form-control" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-md-12 pull-right">
+                    
+                </div>
+                <div class="col-lg-8 col-md-12 col-md-12 pull-left">
+                    <div class="col-lg-6 pull-right">
+                        End Date
+                    </div>
+                    <div class="col-lg-6" >
+                        Start Date
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-md-12 pull-right">
+                    <input id="showDate" type="checkbox">
+                    <label for="showDate">Set start and end date</label>
+                </div>
+                <div class="col-lg-8 col-md-12 col-md-12 pull-left">
+                    <input type="date" [(ngModel)]="this._startDate" #endDate class="textboxinput-space form-control date-style pull-right" />
+                    <input type="date" #startDate class="textbox input-space form-control date-style" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-md-12 pull-right">
+                    <label>Priority</label>
+                </div>
+                <div class="col-lg-9 col-md-12 col-md-12 pull-left">
+                    <input type="range" #priority class="input-range-normal" min="1" max="100" maxlength="500">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-md-12 pull-right">
+                    <label>Manager</label>
+                </div>
+                <div class="col-lg-9 col-md-12 col-md-12 pull-left">
+                    <input type="text" #manager class="input-txt-normal">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-md-12 pull-right">
+                    <button (click)="window.location.reload()" class="btn btn-secondary pull-right btn-space">Cancel</button>
+                    <button class="btn btn-primary pull-right" (click)="SaveProject(projectName.value, startDate.value, endDate.value, priority.value)">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-12 col-md-12" *ngIf="_projects && _projects.length">
+            <div class="row">
+                <div class="table">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="inner-td">
+                                    <table class="table">
+                                        <tbody class="tbody-bckground" *ngFor="let project of _projects">
+                                            <tr> 
+                                                <td>
+                                                    <b>Project</b>
+                                                </td>
+                                                <td colspan="3">
+                                                    <i> {{project.PROJECT_NAME}}</i>
+                                                </td>
+                                                <td>
+                                                    <b>Priority</b>
+                                                </td>
+                                                <td>
+                                                        
+                                                </td>
+                                            </tr>
+                                            <tr >
+                                                <td>
+                                                    <b># of Tasks</b>
+                                                </td>
+                                                <td>
+                                                    {{project.TASK_COUNT}}
+                                                </td>
+                                                <td>
+                                                    <b>Completed</b>
+                                                </td>
+                                                <td>
+                                                    {{project.TASK_STATUS}}
+                                                </td>
+                                                <td rowspan="2">
+                                                    <input type="range" [value]="project.PRIORITY" style="-webkit-appearance: slider-vertical" orient="vertical" />
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-primary pull-right" (click)="Suspend(project.PROJECT_ID)" >Suspend</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <b>Start Date</b>
+                                                </td>
+                                                <td>
+                                                    <i>{{project.START_DATE | date}}</i>
+                                                </td>
+                                                <td>
+                                                    <b>End Date</b>
+                                                </td>
+                                                <td>
+                                                    <i>{{project.END_DATE | date}}</i>
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
